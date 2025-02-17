@@ -35,4 +35,47 @@ class Solution {
     }
 }
 ```
-## 3
+> 17/02/2025
+## 3 Print all subarray
+```java
+public class Main {
+    public static void printAllSubarrays(int[] arr) {
+        int n = arr.length;
+        for(int i = 0; i < n; i++) {
+            for(int j = i; j < n; j++) {
+                for(int k = i; k <= j; k++){
+                    System.out.print(arr[k] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 2 , 9, 0, 2};
+        printAllSubarrays(arr);
+    }
+}
+```
+## 4 Maximum SubArray
+```java
+public class Main {
+    public static void MaxSubarray(int[] arr) {
+        int n = arr.length;
+        int max = arr[0],sum = 0;
+        for(int i = 0; i < n; i++) {
+             sum+=arr[i];
+             max = Math.max(sum,max);
+             if(sum < 0) {
+                 sum = 0;
+             }
+        }
+         System.out.println(max);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 2 , 9, 0, 2};
+        MaxSubarray(arr);
+    }
+}
+```
