@@ -98,3 +98,66 @@ class Solution {
     }
 }
 ```
+> 19/02/2025
+## 6 Majority Element
+```java
+class Solution {
+    public int majorityElement(int[] nums) {
+        int el = 0;
+        int count = 0;
+        for(int i:nums){
+            if(count == 0) {
+                count++;
+                el = i;
+            }
+            else if(el == i) {
+                count ++;
+            }
+            else{
+                count--;
+            }
+        }
+        int c1 = 0;
+        for(int i :nums){
+            if( i == el) c1++; 
+        }
+        if(c1 > nums.length/2) return el;
+        return -1;
+    }
+}
+```
+## 7 Best Time to Sell Stocks
+```java
+class Solution {
+    public int maxProfit(int[] arr) {
+     int min = Integer.MAX_VALUE;
+     int max = 0;
+     for(int i:arr) {
+        min = Math.min(min,i);
+        max = Math.max(max,i-min);
+     }
+     return max;
+    }
+}
+```
+## 8 Rearrange Array Elements by Sign
+```java
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int[] arr = new int[nums.length];
+        int pos = 0;
+        int neg = 1;
+        for(int i = 0;i<arr.length;i++){
+            if(nums[i] > 0) {
+                arr[pos] = nums[i];
+                pos+=2;
+            }  
+            else{
+                arr[neg] = nums[i];
+                neg+=2;
+            }
+        }
+        return arr;
+    }
+}
+```
